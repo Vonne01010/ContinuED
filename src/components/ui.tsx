@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 const cx = (...c: (string | false | undefined)[]) => c.filter(Boolean).join(" ");
@@ -20,15 +21,15 @@ export function ProgressBar({ value, color = "blue", label }: { value: number; c
   );
 }
 
-export function CircularProgress({ value, size = 96, children }: { value: number; size?: number; children?: ReactNode }) {
+export function CircularProgress({ value, size = 96, children, onDark }: { value: number; size?: number; children?: ReactNode; onDark?: boolean }) {
   const r = (size - 12) / 2;
   const c = 2 * Math.PI * r;
   const v = Math.max(0, Math.min(100, value));
   return (
     <div className="relative shrink-0" style={{ width: size, height: size }}>
       <svg width={size} height={size} className="-rotate-90" aria-hidden>
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#EEF2F8" strokeWidth="10" />
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#2563EB" strokeWidth="10" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c * (1 - v / 100)} className="transition-all duration-700" />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={onDark ? "rgba(255,255,255,.2)" : "#EEF2F8"} strokeWidth="10" />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={onDark ? "#F59E0B" : "#2563EB"} strokeWidth="10" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c * (1 - v / 100)} className="transition-all duration-700" />
       </svg>
       <div className="absolute inset-0 flex items-center justify-center text-center text-sm font-extrabold">{children}</div>
     </div>
@@ -61,23 +62,23 @@ export function StreakBadge({ days }: { days: number }) {
   return <span className="inline-flex items-center gap-1 rounded-full bg-orange-100 px-3 py-1 text-sm font-extrabold text-orange-600">🔥 {days}-day streak</span>;
 }
 
-export function SubjectCard({ name, icon, lessons, progress, active, tint }: { name: string; icon: string; lessons: number; progress: number; active?: boolean; tint: string }) {
+export function SubjectCard({ name, icon, note, progress, tint, href }: { name: string; icon: string; note: string; progress: number; tint: string; href: string }) {
   return (
-    <div className={cx("card flex flex-col gap-3 p-4", !active && "opacity-80")}>
+    <Link href={href} className={cx("card group flex flex-col gap-3 bg-gradient-to-br from-white p-4 transition hover:-translate-y-1 hover:shadow-lg", tint.replace("bg-", "to-"))}>
       <div className="flex items-center justify-between">
-        <span className={cx("flex h-10 w-10 items-center justify-center rounded-xl text-xl", tint)} aria-hidden>{icon}</span>
-        {!active && <span className="rounded-full bg-mist px-2 py-0.5 text-[11px] font-bold text-slate-500">Coming soon</span>}
+        <span className={cx("flex h-12 w-12 items-center justify-center rounded-2xl text-2xl transition group-hover:scale-110", tint)} aria-hidden>{icon}</span>
+        <span className="text-sm font-bold text-blue opacity-0 transition group-hover:opacity-100" aria-hidden>Open →</span>
       </div>
       <div>
         <div className="font-extrabold">{name}</div>
-        <div className="text-xs text-slate-500">{lessons} lessons · {progress}%</div>
+        <div className="text-xs text-slate-500">{note}</div>
       </div>
-      <ProgressBar value={progress} color={active ? "blue" : "green"} label={`${name} progress`} />
-    </div>
+      <ProgressBar value={progress} label={`${name} progress`} />
+    </Link>
   );
 }
 
-export function LessonCard({ title, meta, chips, progress, right }: { title: string; meta: string; chips?: ReactNode; progress?: number; right?: ReactNode }) {
+export function LessonCard({ title, meta, chips, progress, right }: { title: string; meta: ReactNode; chips?: ReactNode; progress?: number; right?: ReactNode }) {
   return (
     <li className="card flex flex-col gap-3 p-4">
       <div className="flex items-start justify-between gap-3">

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { CATALOG, COMPETENCIES, FALLBACK } from "@/lib/data";
-import type { RawMatch } from "@/lib/types";
+import type { CatalogItem, RawMatch } from "@/lib/types";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -17,15 +17,15 @@ function parseJson(text: string): unknown {
   return JSON.parse(start >= 0 && end > start ? cleaned.slice(start, end + 1) : cleaned);
 }
 
-function fallbackFor(lessons: string[]): RawMatch[] {
+function fallbackFor(lessons: string[], catalog: CatalogItem[]): RawMatch[] {
   return lessons.map((lesson, i) => {
     const exact = FALLBACK.find((f) => f.lesson.toLowerCase() === lesson.toLowerCase());
     if (exact) return exact;
     // Unknown lesson: crude keyword overlap against catalog titles.
     const words = lesson.toLowerCase().split(/\W+/).filter((w) => w.length > 3);
-    let best = CATALOG[0];
+    let best = catalog[0];
     let bestScore = -1;
-    for (const c of CATALOG) {
+    for (const c of catalog) {
       const hay = `${c.title} ${c.topic}`.toLowerCase();
       const score = words.filter((w) => hay.includes(w)).length;
       if (score > bestScore) {
@@ -46,8 +46,12 @@ function fallbackFor(lessons: string[]): RawMatch[] {
 
 export async function POST(req: Request) {
   let lessons: string[] = [];
+  let catalog: CatalogItem[] = CATALOG;
   try {
     const body = await req.json();
+    // Resources the teacher added from outside the bundled catalog (validated, capped).
+    const extra = (Array.isArray(body.resources) ? body.resources : []).slice(0, 60).filter((r: CatalogItem) => r && typeof r.id === "string" && typeof r.title === "string" && !CATALOG.some((c) => c.id === r.id)).map((r: CatalogItem) => ({ id: String(r.id).slice(0, 80), title: String(r.title).slice(0, 160), topic: String(r.topic ?? "").slice(0, 60), source: String(r.source ?? "").slice(0, 60), url: String(r.url ?? ""), estimatedMinutes: Number(r.estimatedMinutes) || 10, sizeMB: Number(r.sizeMB) || 0.5 }));
+    catalog = [...CATALOG, ...extra];
     lessons = (Array.isArray(body.lessons) ? body.lessons : [])
       .map(String)
       .map((s: string) => s.trim())
@@ -59,7 +63,7 @@ export async function POST(req: Request) {
   if (!lessons.length) return NextResponse.json({ error: "No lessons" }, { status: 400 });
 
   const key = process.env.ANTHROPIC_API_KEY;
-  if (!key) return NextResponse.json({ matches: fallbackFor(lessons), source: "fallback", note: "No ANTHROPIC_API_KEY set" });
+  if (!key) return NextResponse.json({ matches: fallbackFor(lessons, catalog), source: "fallback", note: "No ANTHROPIC_API_KEY set" });
 
   try {
     const res = await fetch("https://api.anthropic.com/v1/messages", {
@@ -74,7 +78,7 @@ export async function POST(req: Request) {
             role: "user",
             content: JSON.stringify({
               lessons,
-              catalog: CATALOG.map(({ id, title, topic, source }) => ({ id, title, topic, source })),
+              catalog: catalog.map(({ id, title, topic, source }) => ({ id, title, topic, source })),
               competencies: COMPETENCIES.map(({ code, description }) => ({ code, description })),
             }),
           },
@@ -88,7 +92,7 @@ export async function POST(req: Request) {
     const parsed = parseJson(text);
     if (!Array.isArray(parsed)) throw new Error("Not an array");
 
-    const ids = new Set(CATALOG.map((c) => c.id));
+    const ids = new Set(catalog.map((c) => c.id));
     const codes = new Set(COMPETENCIES.map((c) => c.code));
     const valid: RawMatch[] = (parsed as RawMatch[])
       .filter((m) => m && typeof m.lesson === "string" && lessons.includes(m.lesson) && ids.has(m.resourceId) && codes.has(m.competencyCode))
@@ -102,10 +106,10 @@ export async function POST(req: Request) {
     // Fill any lessons the model dropped or matched invalidly with fallback entries.
     const have = new Set(valid.map((m) => m.lesson));
     const missing = lessons.filter((l) => !have.has(l));
-    const matches = [...valid, ...fallbackFor(missing)].sort((a, b) => lessons.indexOf(a.lesson) - lessons.indexOf(b.lesson));
+    const matches = [...valid, ...fallbackFor(missing, catalog)].sort((a, b) => lessons.indexOf(a.lesson) - lessons.indexOf(b.lesson));
     if (!valid.length) throw new Error("No valid matches");
     return NextResponse.json({ matches, source: missing.length ? "ai+fallback" : "ai" });
   } catch (e) {
-    return NextResponse.json({ matches: fallbackFor(lessons), source: "fallback", note: e instanceof Error ? e.message : "error" });
+    return NextResponse.json({ matches: fallbackFor(lessons, catalog), source: "fallback", note: e instanceof Error ? e.message : "error" });
   }
 }

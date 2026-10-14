@@ -43,3 +43,22 @@ export function useStored<T>(key: string, initial: T | (() => T)): [T, (v: T | (
 
   return [val, set, ready];
 }
+
+/** Non-hook helpers so background tasks (sync, downloads) can read and write the same keys. */
+export function lsGet<T>(key: string, fallback: T): T {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? (JSON.parse(raw) as T) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+export function lsSet<T>(key: string, value: T | ((prev: T | undefined) => T)) {
+  try {
+    const prev = lsGet<T | undefined>(key, undefined);
+    const next = typeof value === "function" ? (value as (p: T | undefined) => T)(prev) : value;
+    localStorage.setItem(key, JSON.stringify(next));
+  } catch {}
+  window.dispatchEvent(new CustomEvent(EVT, { detail: key }));
+}

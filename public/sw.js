@@ -1,7 +1,7 @@
 /* Service worker: precache the student shell, stale-while-revalidate for everything else. */
-const VERSION = "v3";
+const VERSION = "v5";
 const CACHE = "app-" + VERSION;
-const ROUTES = ["/student", "/student/quiz", "/student/offline", "/student/my-learning", "/student/achievements", "/student/profile"];
+const ROUTES = ["/student", "/student/quiz", "/student/offline", "/student/my-learning", "/student/achievements", "/student/profile", "/student/lesson", "/student/play", "/student/nearby"];
 const PRECACHE = [...ROUTES, "/manifest.webmanifest", "/icon.svg", "/icon-192.png", "/icon-512.png"];
 
 self.addEventListener("install", (event) => {

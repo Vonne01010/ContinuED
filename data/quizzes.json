@@ -1,0 +1,30 @@
+{
+  "math": [
+    { "id": "m1", "question": "There are 4 bags with 6 apples in each bag. How many apples are there in total?", "options": ["10", "24", "20", "28"], "correct": 1, "explanation": "4 bags × 6 apples = 24 apples. You can also add 6 + 6 + 6 + 6." },
+    { "id": "m2", "question": "What is 345 + 128?", "options": ["463", "483", "473", "373"], "correct": 2, "explanation": "5 + 8 = 13 (carry 1), 4 + 2 + 1 = 7, 3 + 1 = 4. So 345 + 128 = 473." },
+    { "id": "m3", "question": "What is 7 × 8?", "options": ["54", "63", "48", "56"], "correct": 3, "explanation": "7 × 8 = 56. Tip: 7 × 8 is the same as 8 × 7." },
+    { "id": "m4", "question": "12 candies are shared equally among 3 friends. How many candies does each friend get?", "options": ["4", "3", "6", "9"], "correct": 0, "explanation": "12 ÷ 3 = 4, because 3 groups of 4 make 12." },
+    { "id": "m5", "question": "Which fraction is the greatest?", "options": ["1/8", "1/4", "1/3", "1/2"], "correct": 3, "explanation": "When the top number is 1, a smaller bottom number means bigger pieces. So 1/2 is the greatest." }
+  ],
+  "science": [
+    { "id": "s1", "question": "Which of these is a living thing?", "options": ["Rock", "Mango tree", "Water", "Chair"], "correct": 1, "explanation": "Living things grow, need food and water, and make more of their kind. A mango tree does all of these." },
+    { "id": "s2", "question": "What do plants need to make their own food?", "options": ["Sunlight, water and air", "Only soil", "Darkness and sugar", "Wind and sand"], "correct": 0, "explanation": "Plants use sunlight, water and carbon dioxide from the air to make food. This is called photosynthesis." },
+    { "id": "s3", "question": "When ice melts, what does it turn into?", "options": ["Steam", "Water", "Rock", "Smoke"], "correct": 1, "explanation": "Melting changes a solid (ice) into a liquid (water)." },
+    { "id": "s4", "question": "Which one is attracted to a magnet?", "options": ["Plastic ruler", "Iron nail", "Wooden stick", "Rubber band"], "correct": 1, "explanation": "Magnets attract things made of iron, like an iron nail." },
+    { "id": "s5", "question": "What should you do during an earthquake if you are indoors?", "options": ["Run outside quickly", "Hide under a sturdy table (Duck, Cover, Hold)", "Stand near a window", "Use the elevator"], "correct": 1, "explanation": "Duck, Cover and Hold under a sturdy table protects you from falling objects." }
+  ],
+  "english": [
+    { "id": "e1", "question": "Which word is a noun?", "options": ["Run", "Happy", "Teacher", "Quickly"], "correct": 2, "explanation": "A noun names a person, place, animal or thing. 'Teacher' is a person." },
+    { "id": "e2", "question": "Choose the correct verb: The children ___ in the park.", "options": ["plays", "play", "playing", "played is"], "correct": 1, "explanation": "'Children' is plural, so we use the plural verb 'play'." },
+    { "id": "e3", "question": "What is the plural of 'box'?", "options": ["boxs", "boxes", "boxies", "box"], "correct": 1, "explanation": "Words ending in x add -es to make the plural: boxes." },
+    { "id": "e4", "question": "Which word means the opposite of 'hot'?", "options": ["Warm", "Cold", "Sunny", "Dry"], "correct": 1, "explanation": "Opposites have meanings that are as different as possible. The opposite of hot is cold." },
+    { "id": "e5", "question": "Which sentence is written correctly?", "options": ["we go to school.", "We go to school", "We go to school.", "we Go to School."], "correct": 2, "explanation": "A sentence starts with a capital letter and ends with a period." }
+  ],
+  "filipino": [
+    { "id": "f1", "question": "Alin sa mga sumusunod ang pangngalan?", "options": ["Tumakbo", "Maganda", "Aso", "Mabilis"], "correct": 2, "explanation": "Ang pangngalan ay pangalan ng tao, hayop, bagay o lugar. Ang 'aso' ay hayop." },
+    { "id": "f2", "question": "Ano ang kasalungat ng 'malaki'?", "options": ["Mataas", "Maliit", "Mabigat", "Malapad"], "correct": 1, "explanation": "Ang kasalungat ng 'malaki' ay 'maliit'." },
+    { "id": "f3", "question": "Alin ang pandiwa (salitang kilos)?", "options": ["Kumain", "Bulaklak", "Pula", "Paaralan"], "correct": 0, "explanation": "Ang pandiwa ay salitang nagsasabi ng kilos. Ang 'kumain' ay kilos." },
+    { "id": "f4", "question": "Piliin ang pang-uri: 'Ang ___ na bata ay nag-aaral.'", "options": ["masipag", "tumakbo", "bahay", "kahapon"], "correct": 0, "explanation": "Ang pang-uri ay naglalarawan ng pangngalan. Ang 'masipag' ay naglalarawan sa bata." },
+    { "id": "f5", "question": "Ilang pantig mayroon ang salitang 'paaralan'?", "options": ["2", "3", "4", "5"], "correct": 2, "explanation": "Pa-a-ra-lan: may apat na pantig." }
+  ]
+}

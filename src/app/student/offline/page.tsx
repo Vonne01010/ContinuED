@@ -1,5 +1,7 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import { SourceBadge } from "@/components/extras";
 import { Button, Card, EmptyState, LessonCard, StatusChip } from "@/components/ui";
 import { useOnline } from "@/lib/useOnline";
 import { usePackage, useSyncQueue } from "@/lib/useStudent";
@@ -9,7 +11,7 @@ const mb = (b: number) => `${(b / 1048576).toFixed(1)} MB`;
 
 export default function OfflineLibrary() {
   const { pkg } = usePackage();
-  const { queue, waiting, syncing, lastSync, syncNow } = useSyncQueue();
+  const { queue, waiting, syncing, failed, lastSync, syncNow } = useSyncQueue();
   const online = useOnline();
   const [storage, setStorage] = useState<{ usage: number; quota: number } | null>(null);
 
@@ -31,14 +33,15 @@ export default function OfflineLibrary() {
             <span className={`h-2.5 w-2.5 rounded-full ${online ? "bg-green" : "bg-amber"}`} aria-hidden />
             {online ? "Connected to the internet" : "Offline. Everything here still works."}
           </div>
-          <Button onClick={syncNow} disabled={!online || waiting === 0 || syncing}>{syncing ? "Syncing…" : "↻ Sync now"}</Button>
+          <Button onClick={() => void syncNow()} disabled={!online || waiting === 0 || syncing}>{syncing ? "Syncing…" : "↻ Sync now"}</Button>
         </div>
         <div className="grid gap-3 text-sm sm:grid-cols-3">
           <div className="rounded-xl bg-mist p-3"><div className="text-xs font-semibold text-slate-500">Last sync</div><div className="font-bold">{fmtTime(lastSync)}</div></div>
           <div className="rounded-xl bg-mist p-3"><div className="text-xs font-semibold text-slate-500">Waiting to sync</div><div className="font-bold" data-testid="waiting-count">{waiting}</div></div>
           {storage && <div className="rounded-xl bg-mist p-3"><div className="text-xs font-semibold text-slate-500">Storage on this device</div><div className="font-bold">{mb(storage.usage)} used</div></div>}
         </div>
-        <p className="text-xs text-slate-400">Demo: Sync now is simulated. No data is sent anywhere.{!online && " Reconnect to sync."}</p>
+        {failed && <p className="text-sm font-semibold text-danger" role="alert">Sync did not finish: {failed}. We will retry when you are online.</p>}
+        <p className="text-xs text-slate-400">{online ? "Your progress is sent to your teacher's school server automatically, or tap Sync now." : "Offline. Your progress is saved on this device and will sync when you reconnect."}</p>
       </Card>
 
       {queue.length > 0 && (
@@ -65,9 +68,9 @@ export default function OfflineLibrary() {
               <LessonCard
                 key={it.lesson}
                 title={it.lesson}
-                meta={`${it.source} · ${it.minutes} min · ${it.sizeMB} MB`}
-                chips={<><StatusChip kind="offline" /><StatusChip kind="needsNet" label="Full resource needs internet" /></>}
-                right={<a href={it.url} target="_blank" rel="noreferrer" className="shrink-0 text-sm font-bold text-blue">Open ↗</a>}
+                meta={<span className="flex flex-wrap items-center gap-2"><SourceBadge source={it.source} size="sm" />{it.minutes} min · {it.sizeMB} MB</span>}
+                chips={<><StatusChip kind="offline" label={`Available Offline · ${it.sections?.length ?? 3} steps`} />{it.url && <a href={it.url} target="_blank" rel="noreferrer"><StatusChip kind="needsNet" label="Full resource ↗ needs internet" /></a>}</>}
+                right={<Link href={`/student/lesson?lesson=${encodeURIComponent(it.lesson)}`} className="btn-primary shrink-0 !px-3 !py-1.5 text-xs">Study</Link>}
               />
             ))}
           </ul>
