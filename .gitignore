@@ -1,0 +1,9 @@
+﻿node_modules
+.next
+.env*.local
+next-env.d.ts
+*.tsbuildinfo
+.playwright-mcp
+*.png
+!public/*.png
+dist

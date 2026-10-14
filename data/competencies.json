@@ -1,0 +1,12 @@
+[
+ {"code":"M3NS-Ia-1.1","description":"Visualizes and represents numbers up to 1,000 with emphasis on numbers 101 to 1,000 and gives the place value of a digit.","quarter":1},
+ {"code":"M3NS-Ic-12.4","description":"Adds 2- to 3-digit numbers with sums up to 1,000, with and without regrouping.","quarter":1},
+ {"code":"M3NS-Ie-28.2","description":"Subtracts 2- to 3-digit numbers with and without regrouping.","quarter":1},
+ {"code":"M3NS-IIa-39.1","description":"Visualizes and illustrates multiplication of numbers 1 to 10 through repeated addition and arrays.","quarter":2},
+ {"code":"M3NS-IIc-45.1","description":"Recalls multiplication facts of 2, 3, 4, 5, 6, 7, 8, 9 and 10.","quarter":2},
+ {"code":"M3NS-IIe-51.2","description":"Solves routine and non-routine problems involving multiplication.","quarter":2},
+ {"code":"M3NS-IIIa-55.1","description":"Visualizes and illustrates division as equal sharing and repeated subtraction, and relates it to multiplication.","quarter":3},
+ {"code":"M3NS-IIId-69.1","description":"Visualizes, represents and compares unit fractions and similar fractions (1/2, 1/3, 1/4, ...).","quarter":3},
+ {"code":"M3ME-IVa-30.1","description":"Tells time in minutes, including a.m. and p.m.","quarter":4},
+ {"code":"M3ME-IVf-47.1","description":"Finds the perimeter of squares, rectangles and other plane figures, and measures length in meters and centimeters.","quarter":4}
+]

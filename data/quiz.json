@@ -1,0 +1,62 @@
+[
+ {
+  "id": "q1",
+  "question": "There are 4 bags with 6 apples in each bag. How many apples are there in total?",
+  "options": [
+   "10",
+   "24",
+   "20",
+   "28"
+  ],
+  "correct": 1,
+  "explanation": "4 bags × 6 apples = 24 apples. You can also add 6 + 6 + 6 + 6."
+ },
+ {
+  "id": "q2",
+  "question": "What is 345 + 128?",
+  "options": [
+   "463",
+   "483",
+   "473",
+   "373"
+  ],
+  "correct": 2,
+  "explanation": "5 + 8 = 13 (carry 1), 4 + 2 + 1 = 7, 3 + 1 = 4. So 345 + 128 = 473."
+ },
+ {
+  "id": "q3",
+  "question": "What is 7 × 8?",
+  "options": [
+   "54",
+   "63",
+   "48",
+   "56"
+  ],
+  "correct": 3,
+  "explanation": "7 × 8 = 56. Tip: 7 × 8 is the same as 8 × 7."
+ },
+ {
+  "id": "q4",
+  "question": "12 candies are shared equally among 3 friends. How many candies does each friend get?",
+  "options": [
+   "4",
+   "3",
+   "6",
+   "9"
+  ],
+  "correct": 0,
+  "explanation": "12 ÷ 3 = 4, because 3 groups of 4 make 12."
+ },
+ {
+  "id": "q5",
+  "question": "Which fraction is the greatest?",
+  "options": [
+   "1/8",
+   "1/4",
+   "1/3",
+   "1/2"
+  ],
+  "correct": 3,
+  "explanation": "When the top number is 1, a smaller bottom number means bigger pieces. So 1/2 is the greatest."
+ }
+]

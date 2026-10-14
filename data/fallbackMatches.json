@@ -1,0 +1,100 @@
+[
+ {
+  "lesson": "Reading and writing numbers up to 1,000 and place value",
+  "resourceId": "c01",
+  "competencyCode": "M3NS-Ia-1.1",
+  "confidence": 0.95,
+  "reason": "Both focus on understanding hundreds, tens and ones in 3-digit numbers."
+ },
+ {
+  "lesson": "Adding 3-digit numbers without regrouping",
+  "resourceId": "c02",
+  "competencyCode": "M3NS-Ic-12.4",
+  "confidence": 0.93,
+  "reason": "Direct match: adding numbers within 1,000."
+ },
+ {
+  "lesson": "Adding 3-digit numbers with regrouping",
+  "resourceId": "c02",
+  "competencyCode": "M3NS-Ic-12.4",
+  "confidence": 0.91,
+  "reason": "Khan's add-within-1,000 covers carrying across place values."
+ },
+ {
+  "lesson": "Subtracting 3-digit numbers with regrouping",
+  "resourceId": "c03",
+  "competencyCode": "M3NS-Ie-28.2",
+  "confidence": 0.92,
+  "reason": "Direct match: borrowing when subtracting within 1,000."
+ },
+ {
+  "lesson": "Multiplication as repeated addition and arrays",
+  "resourceId": "c04",
+  "competencyCode": "M3NS-IIa-39.1",
+  "confidence": 0.96,
+  "reason": "Intro to multiplication uses repeated addition and arrays."
+ },
+ {
+  "lesson": "Multiplication tables of 2, 3, 4 and 5",
+  "resourceId": "c05",
+  "competencyCode": "M3NS-IIc-45.1",
+  "confidence": 0.9,
+  "reason": "Times-table practice covers the lower multiplication facts."
+ },
+ {
+  "lesson": "Multiplication tables of 6 to 10",
+  "resourceId": "c16",
+  "competencyCode": "M3NS-IIc-45.1",
+  "confidence": 0.84,
+  "reason": "Schoolhouse.world peer-led sessions drill the harder facts of 6 to 10 with a live tutor."
+ },
+ {
+  "lesson": "Solving word problems with multiplication",
+  "resourceId": "c06",
+  "competencyCode": "M3NS-IIe-51.2",
+  "confidence": 0.94,
+  "reason": "Resource is specifically about multiplication word problems."
+ },
+ {
+  "lesson": "Division as equal sharing",
+  "resourceId": "c07",
+  "competencyCode": "M3NS-IIIa-55.1",
+  "confidence": 0.95,
+  "reason": "Intro to division teaches equal sharing and grouping."
+ },
+ {
+  "lesson": "Relating multiplication and division facts",
+  "resourceId": "c08",
+  "competencyCode": "M3NS-IIIa-55.1",
+  "confidence": 0.9,
+  "reason": "Resource explicitly connects fact families of multiplication and division."
+ },
+ {
+  "lesson": "Fractions: halves, thirds and fourths",
+  "resourceId": "c17",
+  "competencyCode": "M3NS-IIId-69.1",
+  "confidence": 0.92,
+  "reason": "CK-12 covers unit fractions with visuals and is written for Grade 3."
+ },
+ {
+  "lesson": "Comparing fractions with the same denominator",
+  "resourceId": "c11",
+  "competencyCode": "M3NS-IIId-69.1",
+  "confidence": 0.58,
+  "reason": "Resource covers comparing fractions but goes further into equivalence than the lesson needs."
+ },
+ {
+  "lesson": "Telling time to the nearest minute",
+  "resourceId": "c18",
+  "competencyCode": "M3ME-IVa-30.1",
+  "confidence": 0.86,
+  "reason": "BBC Bitesize teaches reading clocks to the minute with simple interactive examples."
+ },
+ {
+  "lesson": "Measuring length and finding perimeter",
+  "resourceId": "c20",
+  "competencyCode": "M3ME-IVf-47.1",
+  "confidence": 0.62,
+  "reason": "BBC Bitesize covers measuring length but not perimeter, which is the other half of this lesson."
+ }
+]

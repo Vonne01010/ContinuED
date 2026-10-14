@@ -1,0 +1,191 @@
+[
+ {
+  "id": "c01",
+  "title": "Place value to 1,000",
+  "topic": "Place value",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 12,
+  "source": "Khan Academy",
+  "sizeMB": 5
+ },
+ {
+  "id": "c02",
+  "title": "Add within 1,000",
+  "topic": "Addition",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 15,
+  "source": "Khan Academy",
+  "sizeMB": 6.3
+ },
+ {
+  "id": "c03",
+  "title": "Subtract within 1,000",
+  "topic": "Subtraction",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 15,
+  "source": "Khan Academy",
+  "sizeMB": 6.3
+ },
+ {
+  "id": "c04",
+  "title": "Introduction to multiplication",
+  "topic": "Multiplication",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 12,
+  "source": "Khan Academy",
+  "sizeMB": 5
+ },
+ {
+  "id": "c05",
+  "title": "Multiplication tables (times tables)",
+  "topic": "Multiplication",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 18,
+  "source": "Khan Academy",
+  "sizeMB": 7.6
+ },
+ {
+  "id": "c06",
+  "title": "Multiplication word problems",
+  "topic": "Multiplication",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 14,
+  "source": "Khan Academy",
+  "sizeMB": 5.9
+ },
+ {
+  "id": "c07",
+  "title": "Introduction to division",
+  "topic": "Division",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 12,
+  "source": "Khan Academy",
+  "sizeMB": 5
+ },
+ {
+  "id": "c08",
+  "title": "Relating multiplication and division",
+  "topic": "Division",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 10,
+  "source": "Khan Academy",
+  "sizeMB": 4.2
+ },
+ {
+  "id": "c09",
+  "title": "Intro to fractions",
+  "topic": "Fractions",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 14,
+  "source": "Khan Academy",
+  "sizeMB": 5.9
+ },
+ {
+  "id": "c10",
+  "title": "Fractions on the number line",
+  "topic": "Fractions",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 12,
+  "source": "Khan Academy",
+  "sizeMB": 5
+ },
+ {
+  "id": "c11",
+  "title": "Equivalent fractions and comparing fractions",
+  "topic": "Fractions",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 16,
+  "source": "Khan Academy",
+  "sizeMB": 6.7
+ },
+ {
+  "id": "c12",
+  "title": "Telling time",
+  "topic": "Measurement and data",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 12,
+  "source": "Khan Academy",
+  "sizeMB": 5
+ },
+ {
+  "id": "c13",
+  "title": "Measuring length",
+  "topic": "Measurement and data",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 10,
+  "source": "Khan Academy",
+  "sizeMB": 4.2
+ },
+ {
+  "id": "c14",
+  "title": "Perimeter",
+  "topic": "Geometry",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 14,
+  "source": "Khan Academy",
+  "sizeMB": 5.9
+ },
+ {
+  "id": "c15",
+  "title": "Area introduction",
+  "topic": "Geometry",
+  "url": "https://www.khanacademy.org/math/cc-third-grade-math",
+  "estimatedMinutes": 14,
+  "source": "Khan Academy",
+  "sizeMB": 5.9
+ },
+ {
+  "id": "c16",
+  "title": "Multiplication and division fact practice (peer-led sessions)",
+  "topic": "Multiplication",
+  "source": "Schoolhouse.world",
+  "url": "https://schoolhouse.world",
+  "estimatedMinutes": 20,
+  "sizeMB": 8.4
+ },
+ {
+  "id": "c17",
+  "title": "Fractions: halves, thirds and fourths",
+  "topic": "Fractions",
+  "source": "CK-12",
+  "url": "https://www.ck12.org",
+  "estimatedMinutes": 15,
+  "sizeMB": 6.3
+ },
+ {
+  "id": "c18",
+  "title": "Telling the time",
+  "topic": "Measurement and data",
+  "source": "BBC Bitesize",
+  "url": "https://www.bbc.co.uk/bitesize",
+  "estimatedMinutes": 10,
+  "sizeMB": 4.2
+ },
+ {
+  "id": "c19",
+  "title": "Perimeter of shapes",
+  "topic": "Geometry",
+  "source": "CK-12",
+  "url": "https://www.ck12.org",
+  "estimatedMinutes": 14,
+  "sizeMB": 5.9
+ },
+ {
+  "id": "c20",
+  "title": "Measuring length",
+  "topic": "Measurement and data",
+  "source": "BBC Bitesize",
+  "url": "https://www.bbc.co.uk/bitesize",
+  "estimatedMinutes": 10,
+  "sizeMB": 4.2
+ },
+ {
+  "id": "c21",
+  "title": "Crash Course Kids: measurement and everyday math",
+  "topic": "Measurement and data",
+  "source": "Crash Course",
+  "url": "https://thecrashcourse.com",
+  "estimatedMinutes": 11,
+  "sizeMB": 4.6
+ }
+]
